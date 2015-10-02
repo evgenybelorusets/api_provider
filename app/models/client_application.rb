@@ -1,4 +1,6 @@
 class ClientApplication < ActiveRecord::Base
+  has_many :users
+
   devise :database_authenticatable, :registerable, :recoverable, :validatable
   before_create :generate_http_basic_credentials
 

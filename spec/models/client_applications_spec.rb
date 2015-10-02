@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 RSpec.describe ClientApplication do
+  context 'relations' do
+    it { should have_many :users }
+  end
+
   describe '#generate_http_basic_credentials' do
     let(:relation1) { double :relation1, exists?: true }
     let(:relation2) { double :relation2, exists?: false }
