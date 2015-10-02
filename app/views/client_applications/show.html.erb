@@ -1,0 +1,24 @@
+<div class="container well">
+  <table class='table'>
+    <tr>
+      <td><%= 'Email' %></td>
+      <td><%= current_client_application.email %></td>
+    </tr>
+
+    <tr>
+      <td><%= 'Key' %></td>
+      <td><%= current_client_application.key %></td>
+    </tr>
+
+    <tr>
+      <td><%= 'Secret' %></td>
+      <td><%= current_client_application.secret %></td>
+    </tr>
+  </table>
+
+  <%= link_to 'Sign Out',
+    destroy_client_application_session_path,
+    class: 'btn btn-default navbar-btn sign-out-btn',
+    method: :delete
+  %>
+</div>
