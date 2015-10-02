@@ -1,0 +1,1 @@
+json.partial! partial: 'representation', collection: records, as: :comment

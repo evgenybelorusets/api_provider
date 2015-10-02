@@ -13,6 +13,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem 'cancan'
+gem 'jbuilder'
+gem 'factory_girl_rails', '~> 4.0'
 
 group :development, :test do
   gem 'byebug'

@@ -4,16 +4,11 @@ RSpec.describe Ability do
   let(:user) { User.new id: 1 }
   subject { Ability.new user }
 
-  context 'guest permissions' do
-    it { expect(subject.can? :read, Post).to be_true }
-    it { expect(subject.can? :read, Comment).to be_true }
-  end
-
-  context 'guest permissions' do
+  context 'any user permissions' do
     it { expect(subject.can? :read, User).to be_false }
     it { expect(subject.can? :read, Post).to be_true }
     it { expect(subject.can? :read, Comment).to be_true }
-    it { expect(subject.can? :create, User).to be_false }
+    it { expect(subject.can? :create, User).to be_true }
     it { expect(subject.can? :create, Post).to be_false }
     it { expect(subject.can? :create, Comment).to be_false }
     it { expect(subject.can? :update, User).to be_false }
@@ -39,7 +34,7 @@ RSpec.describe Ability do
     it { expect(subject.can? :read, different_user).to be_false }
     it { expect(subject.can? :read, Post).to be_true }
     it { expect(subject.can? :read, Comment).to be_true }
-    it { expect(subject.can? :create, User).to be_false }
+    it { expect(subject.can? :create, User).to be_true }
     it { expect(subject.can? :create, Post).to be_true }
     it { expect(subject.can? :create, Comment).to be_true }
     it { expect(subject.can? :update, user).to be_true }

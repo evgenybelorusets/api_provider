@@ -28,6 +28,11 @@ RSpec.describe User do
     end
   end
 
+  context 'read only attributes' do
+    its('class.readonly_attributes') { should include 'uid' }
+    its('class.readonly_attributes') { should include 'client_application_id' }
+  end
+
   context 'relations' do
     it { should belong_to :client_application }
     it { should have_many :posts }

@@ -3,6 +3,7 @@ class Ability
 
   def initialize(user)
     can :read, [ Post, Comment ]
+    can :create, User
 
     can [ :read, :create, :update, :destroy ], :all if user.admin?
 

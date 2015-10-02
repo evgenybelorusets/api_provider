@@ -1,6 +1,16 @@
 require 'spec_helper'
 
 RSpec.describe Post do
+  context 'read only attributes' do
+    its('class.readonly_attributes') { should include 'user_id' }
+  end
+
+  context 'delegations' do
+    it { should respond_to :user_first_name }
+    it { should respond_to :user_last_name }
+    it { should respond_to :user_email }
+  end
+
   context 'relations' do
     it { should belong_to :user }
     it { should have_many :comments }
