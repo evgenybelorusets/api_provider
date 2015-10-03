@@ -38,7 +38,7 @@ RSpec.describe Api::V1::BaseController do
 
       it 'should render errors with 422 HTTP status if record was not created' do
         expect(record).to receive(:save).and_return false
-        expect(subject).to receive(:render).with(json: { some: :errors }, status: :unprocessable_entity)
+        expect(subject).to receive(:render).with(json: { errors: { some: :errors } }, status: :unprocessable_entity)
         subject.create
       end
     end
@@ -80,7 +80,7 @@ RSpec.describe Api::V1::BaseController do
 
       it 'should render errors with 422 HTTP status if record was not created' do
         expect(record).to receive(:update_attributes).with(record_params).and_return false
-        expect(subject).to receive(:render).with(json: { some: :errors }, status: :unprocessable_entity)
+        expect(subject).to receive(:render).with(json: { errors: { some: :errors } }, status: :unprocessable_entity)
         subject.update
       end
     end

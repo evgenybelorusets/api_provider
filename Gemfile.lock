@@ -49,6 +49,10 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     commonjs (0.2.7)
+    config (1.0.0)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.0.0)
+    deep_merge (1.0.1)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -182,6 +186,7 @@ DEPENDENCIES
   byebug
   cancan
   coffee-rails (~> 4.1.0)
+  config
   devise
   devise-bootstrap-views
   factory_girl_rails (~> 4.0)

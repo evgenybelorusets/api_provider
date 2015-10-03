@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   ROLES = { admin: 0, user: 1, guest: 2 }
 
   belongs_to :client_application
-  has_many :posts
-  has_many :comments
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   attr_readonly :uid, :client_application_id
 

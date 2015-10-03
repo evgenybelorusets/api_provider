@@ -4,7 +4,7 @@ module Api
       protected
 
       def query_params
-        result = params.permit(:first_name, :last_name, :email, :role)
+        result = params.permit(:first_name, :last_name, :email, :role, :uid)
         #enum doesn't work well with string value passed to #where. It just calls #to_i on it
         result[:role] = User.roles[result[:role]] if result[:role].present?
         result.merge(client_application_id: @client_application.id)

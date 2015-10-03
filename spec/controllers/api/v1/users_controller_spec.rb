@@ -28,7 +28,7 @@ RSpec.describe Api::V1::UsersController do
     it 'should permit only :first_name, :last_name, :email, :role, then change role to numeric value and
       merge with client application id' do
       allow(subject).to receive(:params).and_return(params)
-      allow(params).to receive(:permit).with(:first_name, :last_name, :email, :role).and_return permitted_params
+      allow(params).to receive(:permit).with(:first_name, :last_name, :email, :role, :uid).and_return permitted_params
       subject.instance_variable_set(:@client_application, client_application)
       expect(subject.send :query_params).to eql result
     end

@@ -18,7 +18,7 @@ module Api
         if record.save
           render :show, status: :created
         else
-          render json: record.errors, status: :unprocessable_entity
+          render json: { errors: record.errors }, status: :unprocessable_entity
         end
       end
 
@@ -27,7 +27,7 @@ module Api
         if record.update_attributes(record_params)
           render :show
         else
-          render json: record.errors, status: :unprocessable_entity
+          render json: { errors: record.errors } , status: :unprocessable_entity
         end
       end
 

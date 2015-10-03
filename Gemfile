@@ -14,13 +14,14 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem 'cancan'
 gem 'jbuilder'
-gem 'factory_girl_rails', '~> 4.0'
+gem "config"
 
 group :development, :test do
   gem 'byebug'
 end
 
 group :test do
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
