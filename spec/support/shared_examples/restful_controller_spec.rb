@@ -16,8 +16,4 @@ RSpec.shared_examples 'RESTful controller' do |params = {}|
       expect(response.status).to eql 404
     end
   end
-
-  describe '#create' do
-
-  end
 end
