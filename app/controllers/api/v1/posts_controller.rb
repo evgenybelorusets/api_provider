@@ -1,6 +1,8 @@
 module Api
   module V1
     class PostsController < BaseController
+      after_action :set_pagination_headers, only: :index
+
       protected
 
       def query_params
@@ -12,7 +14,13 @@ module Api
       end
 
       def records
-        super.includes(:user)
+        super.page(params[:page]).includes(:user)
+      end
+
+      def set_pagination_headers
+        response.headers["X-total"] = records.total_count.to_s
+        response.headers["X-offset"] = records.offset_value.to_s
+        response.headers["X-limit"] = records.limit_value.to_s
       end
     end
   end

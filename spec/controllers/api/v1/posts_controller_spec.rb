@@ -61,6 +61,7 @@ RSpec.describe Api::V1::PostsController do
 
     it 'should return records for query params' do
       allow(record_class).to receive(:where).with(query_params).once.and_return records
+      allow(records).to receive(:page).and_return records
       allow(records).to receive(:includes).with(:user).and_return records_with_included_user
       expect(subject.send :records).to eql records_with_included_user
       expect(subject.send :records).to eql records_with_included_user

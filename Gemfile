@@ -15,6 +15,7 @@ gem 'devise-bootstrap-views'
 gem 'cancan'
 gem 'jbuilder'
 gem "config"
+gem "kaminari"
 
 group :development, :test do
   gem 'byebug'
