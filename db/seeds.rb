@@ -9,9 +9,9 @@ Pellentesque mauris lorem, vestibulum vel cursus eu, blandit in libero. Maecenas
 TEXT_LENGTH = TEXT.length
 
 def some_text(max_value)
- start_position = rand(TEXT_LENGTH)
- end_position = rand(start_position..(start_position + max_value))
- TEXT[start_position...end_position]
+  start_position = rand(TEXT_LENGTH / 2)
+  end_position = rand((start_position + 1)..(start_position + max_value))
+  TEXT[start_position...end_position]
 end
 
 p 'Seeding client application'
