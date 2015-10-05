@@ -1,22 +1,22 @@
 <div class="container well">
   <table class='table'>
     <tr>
-      <td><%= 'Email' %></td>
+      <td><%= t('client_application.header.email') %></td>
       <td><%= current_client_application.email %></td>
     </tr>
 
     <tr>
-      <td><%= 'Key' %></td>
+      <td><%= t('client_application.header.key') %></td>
       <td><%= current_client_application.key %></td>
     </tr>
 
     <tr>
-      <td><%= 'Secret' %></td>
+      <td><%= t('client_application.header.secret') %></td>
       <td><%= current_client_application.secret %></td>
     </tr>
   </table>
 
-  <%= link_to 'Sign Out',
+  <%= link_to t('login.sign_out'),
     destroy_client_application_session_path,
     class: 'btn btn-default navbar-btn sign-out-btn',
     method: :delete

@@ -20,4 +20,29 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  login:
+    sign_out: 'Sign Out'
+  client_application:
+    header:
+      email: 'Email'
+      key: 'Key'
+      secret: 'Secret'
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              blank: "Post title can't be blank."
+              too_long:
+                other: "Post title can't be longer than %{count} characters"
+            content:
+              blank: "Post content can't be blank."
+              too_long:
+                other: "Post content can't be longer than %{count} characters"
+        comment:
+          attributes:
+            content:
+              blank: "Comment content can't be blank."
+              too_long:
+                other: "Comment title can't be longer than %{count} characters"
