@@ -1,7 +1,14 @@
 require 'spec_helper'
 
 RSpec.describe Api::V1::PostsController do
-  it_behaves_like 'RESTful controller'
+
+  context 'controller behaviour' do
+    before :each do
+      allow(subject).to receive(:set_pagination_headers)
+    end
+
+    it_behaves_like 'RESTful controller'
+  end
 
   describe '#query_params' do
     let(:params) { double :params }

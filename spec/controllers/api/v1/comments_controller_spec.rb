@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe Api::V1::CommentsController do
-  it_behaves_like 'RESTful controller', post_id: 1
+  context 'controller behaviour' do
+    it_behaves_like 'RESTful controller', post_id: 1
+  end
 
   describe '#query_params' do
     let(:params) { double :params }

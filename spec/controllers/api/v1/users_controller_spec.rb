@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe Api::V1::UsersController do
-  it_behaves_like 'RESTful controller'
+  context 'controller behaviour' do
+    it_behaves_like 'RESTful controller'
+  end
 
   describe '#query_params' do
     let(:client_application) { double :client_application, id: 1 }
