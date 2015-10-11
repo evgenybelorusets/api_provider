@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe ClientApplication do
   context 'relations' do
-    it { should have_many :users }
+    it { expect(subject).to have_many :users }
   end
 
   describe '#generate_http_basic_credentials' do

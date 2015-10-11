@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Api::V1::BaseController do
   context 'filters' do
-    it { should use_before_filter :authenticate }
+    it { expect(subject).to use_before_filter :authenticate }
   end
 
   describe '#record_class' do

@@ -2,9 +2,9 @@ require 'spec_helper'
 
 RSpec.describe User do
   context 'enum' do
-    it { should respond_to :guest? }
-    it { should respond_to :user? }
-    it { should respond_to :admin? }
+    it { expect(subject).to respond_to :guest? }
+    it { expect(subject).to respond_to :user? }
+    it { expect(subject).to respond_to :admin? }
 
     it 'should raise error if not valid role is assigned' do
       expect { subject.role = 'test' }.to raise_error(ArgumentError)
@@ -29,20 +29,20 @@ RSpec.describe User do
   end
 
   context 'read only attributes' do
-    its('class.readonly_attributes') { should include 'uid' }
-    its('class.readonly_attributes') { should include 'client_application_id' }
+    it { expect(described_class._attr_readonly).to include 'uid' }
+    it { expect(described_class._attr_readonly).to include 'client_application_id' }
   end
 
   context 'relations' do
-    it { should belong_to :client_application }
-    it { should have_many :posts }
-    it { should have_many :comments }
+    it { expect(subject).to belong_to :client_application }
+    it { expect(subject).to have_many :posts }
+    it { expect(subject).to have_many :comments }
   end
 
   context 'validations' do
-    it { should validate_presence_of :uid }
-    it { should validate_presence_of :role }
-    it { should validate_presence_of :client_application }
+    it { expect(subject).to validate_presence_of :uid }
+    it { expect(subject).to validate_presence_of :role }
+    it { expect(subject).to validate_presence_of :client_application }
   end
 
   context 'class_methods' do
