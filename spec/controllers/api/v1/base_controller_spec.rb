@@ -181,14 +181,14 @@ RSpec.describe Api::V1::BaseController do
 
     it 'should search for user by uid and return him if present' do
       allow(subject).to receive(:params).and_return(user_uid: 'uid')
-      allow(User).to receive(:find_by_uid).with('uid').once.and_return user
+      allow(User).to receive(:find_by).with(uid: 'uid').once.and_return user
       expect(subject.send :current_user).to eql user
       expect(subject.send :current_user).to eql user
     end
 
     it 'should return quest if there is no user for passed uid' do
       allow(subject).to receive(:params).and_return(user_uid: 'uid')
-      allow(User).to receive(:find_by_uid).with('uid').once
+      allow(User).to receive(:find_by).with(uid: 'uid').once
       allow(User).to receive(:guest).once.and_return guest
       expect(subject.send :current_user).to eql guest
       expect(subject.send :current_user).to eql guest
@@ -203,14 +203,14 @@ RSpec.describe Api::V1::BaseController do
     end
 
     it 'should load client application with given credentials' do
-      allow(ClientApplication).to receive(:find_by_key_and_secret).with('key', 'secret').
+      allow(ClientApplication).to receive(:find_by).with(key: 'key', secret: 'secret').
         and_return client_application
       subject.send :authenticate
       expect(assigns[:client_application]).to eql client_application
     end
 
     it 'should render response with 401 HTTP status if there is no client application for given credentials' do
-      allow(ClientApplication).to receive(:find_by_key_and_secret).with('key', 'secret')
+      allow(ClientApplication).to receive(:find_by).with(key: 'key', secret: 'secret')
       expect(subject).to receive(:head).with(:unauthorized)
       subject.send :authenticate
     end

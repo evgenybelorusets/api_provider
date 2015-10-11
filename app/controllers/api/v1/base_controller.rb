@@ -64,12 +64,12 @@ module Api
       helper_method :records
 
       def current_user
-        @current_user ||= User.find_by_uid(params[:user_uid]) || User.guest
+        @current_user ||= User.find_by(uid: params[:user_uid]) || User.guest
       end
 
       def authenticate
         authenticate_with_http_basic do |key, secret|
-          @client_application = ClientApplication.find_by_key_and_secret(key, secret)
+          @client_application = ClientApplication.find_by(key: key, secret: secret)
 
           unless @client_application
             head :unauthorized
