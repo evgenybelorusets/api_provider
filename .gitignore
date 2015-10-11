@@ -18,3 +18,7 @@
 /config/database.yml
 /config/settings.yml
 /.idea/*
+
+/db/test*
+/db/development*
+
