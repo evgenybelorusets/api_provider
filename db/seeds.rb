@@ -2,11 +2,11 @@ p "Seeds started #{Time.now}"
 
 p 'Seeding client application'
 
-client_application = ClientApplication.create! email: 'test@example2.com',
+client_application = ClientApplication.create! email: 'test@example.com',
   password: 'password',
   password_confirmation: 'password'
 
-p "Key: #{client_application.key} Secret: #{client_application.secret}"
+p "API_USER: #{client_application.key} API_PASSWORD: #{client_application.secret}"
 p 'Seed users, posts and comments in client application or uncomment code in db/seeds.rb.'
 p 'Note though, that users will not be create in any client application database then.'
 
