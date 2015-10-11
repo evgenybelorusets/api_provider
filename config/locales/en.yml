@@ -25,8 +25,8 @@ en:
   client_application:
     header:
       email: 'Email'
-      key: 'Key'
-      secret: 'Secret'
+      key: 'User'
+      secret: 'Password'
   activerecord:
     errors:
       models:
